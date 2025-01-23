@@ -14,6 +14,7 @@ namespace Actor.Unit.States
         {
             base.Enter();
             Owner.Agent.OnMovement += HandleMovementEvent;
+            Owner.Agent.OnAttack += HandleAttackEvent;
         }
 
         private void HandleMovementEvent(Vector2 dir)
@@ -24,11 +25,17 @@ namespace Actor.Unit.States
                 StateMachine.ChangeState(UnitStateEnum.Idle);
             }
         }
+        
+        private void HandleAttackEvent()
+        {
+            StateMachine.ChangeState(UnitStateEnum.Attack);
+        }
 
         public override void Exit()
         {
-            base.Exit();
             Owner.Agent.OnMovement -= HandleMovementEvent;
+            Owner.Agent.OnAttack -= HandleAttackEvent;
+            base.Exit();
         }
     }
 }

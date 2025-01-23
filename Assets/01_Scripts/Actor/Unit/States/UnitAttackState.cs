@@ -12,14 +12,29 @@ namespace Actor.Unit.States
 
         public override void Enter()
         {
+            RemoveTrigger(AnimationTriggerEnum.EndTrigger);
             base.Enter();
-            Owner.Movement.StopImmediately();
-            Debug.Log("Unit is attacking");
+            Owner.Movement.StopImmediately(true);
         }
 
         public override void UpdateState()
         {
             base.UpdateState();
+            if (IsTriggerCalled(AnimationTriggerEnum.AttackTrigger))
+            {
+                Debug.Log("Unit is attacking");
+                var target = Owner.AutoAttack.SearchTarget();
+                if (target)
+                {
+                    Owner.AutoAttack.TryAttack(target);
+                }
+                RemoveTrigger(AnimationTriggerEnum.AttackTrigger);
+            }
+
+            if (IsTriggerCalled(AnimationTriggerEnum.EndTrigger))
+            {
+                StateMachine.ChangeState(UnitStateEnum.Move);
+            }
         }
     }
 }

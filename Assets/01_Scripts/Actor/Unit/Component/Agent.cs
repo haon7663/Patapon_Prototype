@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Linq;
+using Actor.Unit.Enums;
+using Actor.Unit.Management;
+using Actor.Unit.States;
 using UnityEngine;
 
 namespace Actor.Unit.Component
@@ -15,13 +19,25 @@ namespace Actor.Unit.Component
             }
             remove => _onMovement -= value;
         }
+        
+        private Action _onAttack;
+        public event Action OnAttack
+        {
+            add
+            {
+                _onAttack -= value;
+                _onAttack += value;
+            }
+            remove => _onAttack -= value;
+        }
 
         private Unit _unit;
         
         public BaseAutoAttack AutoAttack { get; private set; }
         
+        public Alliances targetAlliance;
+        
         public UnitCommands commands;
-        public Transform target;
 
         public void Init(Unit unit)
         {
@@ -29,7 +45,7 @@ namespace Actor.Unit.Component
             AutoAttack = GetComponent<BaseAutoAttack>();
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             switch (commands)
             {
@@ -37,10 +53,28 @@ namespace Actor.Unit.Component
                     _onMovement?.Invoke(Vector2.right);
                     break;
                 case UnitCommands.Attack:
-                    if (AutoAttack.InRange) _unit.StateMachine.ChangeState(UnitStateEnum.Attack);
-                    else _onMovement?.Invoke(Vector2.right);
+                    var target = SearchTarget();
+                    if (target && AutoAttack.InRange && AutoAttack.attackCooldown <= 0)
+                    {
+                        _onAttack?.Invoke();
+                    }
+                    else
+                    {
+                        if (AutoAttack.InRange)
+                            _onMovement?.Invoke(Vector2.zero);
+                        else
+                            _onMovement?.Invoke(target ? target.position.x - transform.position.x > 0 ? Vector2.right : Vector2.left : Vector2.zero);
+                    }
                     break;
             }
+        }
+        
+        public Transform SearchTarget()
+        {
+            return UnitManager.Units
+                .Where(u => u.alliances == _unit.Agent.targetAlliance)
+                .OrderBy(u => (u.transform.position - transform.position).magnitude).FirstOrDefault()
+                ?.transform;
         }
     }
 

@@ -15,7 +15,24 @@ public abstract class State<T> where T : Unit
         AnimBoolHash = Animator.StringToHash(animBoolName);
     }
 
-    public virtual void Enter() { }
+    public virtual void Enter()
+    {
+        Owner.Animator.SetBool(AnimBoolHash, true);
+    }
     public virtual void UpdateState() { }
-    public virtual void Exit() { }
+
+    public virtual void Exit()
+    {
+        Owner.Animator.SetBool(AnimBoolHash, false);
+    }
+
+    public void AnimationTrigger(AnimationTriggerEnum bit)
+    {
+        AnimationTriggerBit |= (int)bit;
+    }
+    
+    public bool IsTriggerCalled(AnimationTriggerEnum bit)
+        => (AnimationTriggerBit & (int)bit) != 0;
+    public void RemoveTrigger(AnimationTriggerEnum bit)
+        => AnimationTriggerBit &= ~(int)bit;
 }

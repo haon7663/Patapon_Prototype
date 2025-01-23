@@ -4,9 +4,10 @@ namespace Actor.Unit.Component
 {
     public class SingleAutoAttack : BaseAutoAttack
     {
-        public override void Strike(Vector2 targetPos)
+        public override void Strike(Transform target)
         {
-            Debug.Log($"Strike to {targetPos}");
+            if (target.TryGetComponent(out Health health))
+                health.OnDamage(strikingPower);
         }
     }
 }
