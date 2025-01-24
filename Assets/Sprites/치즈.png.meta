@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a665eb821f1cc48478821322228fd972
+guid: 3e59ddb2b4343a44da3ef09b1c9b793b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3646774183204910521
-    second: character_concept_mani_0
+      213: -6046797333741770857
+    second: "\uCE58\uC988_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_concept_mani_0
+      name: "\uCE58\uC988_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 497
-        height: 555
+        width: 1048
+        height: 1196
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b57ef55cc1fb9230800000000000000
-      internalID: 3646774183204910521
+      spriteID: 797ea8dbcd5751ca0800000000000000
+      internalID: -6046797333741770857
       vertices: []
       indices: 
       edges: []
@@ -126,7 +126,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      character_concept_mani_0: 3646774183204910521
+      "\uCE58\uC988_0": -6046797333741770857
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

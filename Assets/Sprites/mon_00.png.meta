@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a665eb821f1cc48478821322228fd972
+guid: 64367ebea24b18749809f9613f45238a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3646774183204910521
-    second: character_concept_mani_0
+      213: 5421085329607410843
+    second: mon_00_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,9 +49,9 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
+  alignment: 9
+  spritePivot: {x: 0.4962949, y: 0.42764854}
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character_concept_mani_0
+      name: mon_00_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 497
-        height: 555
+        x: 7
+        y: 7
+        width: 229
+        height: 333
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9b57ef55cc1fb9230800000000000000
-      internalID: 3646774183204910521
+      spriteID: b94c45892609b3b40800000000000000
+      internalID: 5421085329607410843
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      character_concept_mani_0: 3646774183204910521
+      mon_00_0: 5421085329607410843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -8,11 +8,6 @@ namespace Actor.Unit.Component
         public float maxHp;
         public float curHp;
 
-        private void Start()
-        {
-            curHp = maxHp = 20;
-        }
-
         public void OnDamage(float damage)
         {
             curHp -= damage;

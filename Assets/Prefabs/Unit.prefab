@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9075192369892224981}
   - component: {fileID: 3084894320534592385}
   - component: {fileID: 3489892016098540499}
-  - component: {fileID: 3703840943506650056}
   - component: {fileID: 7321919702411629423}
+  - component: {fileID: 7842111691436142176}
   - component: {fileID: 1899044298315659969}
   - component: {fileID: 5460887031697478096}
   m_Layer: 3
@@ -80,22 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetAlliance: 1
   commands: 2
---- !u!114 &3703840943506650056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1099072980280584937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90802b8a0881e2f4db6425c26b24ba48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDelay: 1.5
-  attackCooldown: 0
-  strikingPower: 5
-  range: 0.5
 --- !u!114 &7321919702411629423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,8 +92,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd08b32a894c99f49a0ea640df4bb70d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 0
-  curHp: 0
+  maxHp: 55
+  curHp: 55
+--- !u!114 &7842111691436142176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099072980280584937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8db8a5fc92ddb4faf10ce0a7e8e464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 0, z: 0}
+  boxSize: {x: 0.25, y: 0.25}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  onGround: 0
 --- !u!50 &1899044298315659969
 Rigidbody2D:
   serializedVersion: 5
@@ -135,7 +137,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &5460887031697478096
 BoxCollider2D:
@@ -211,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 5647193028549354715}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2716, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -261,7 +263,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a665eb821f1cc48478821322228fd972, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d52bd6ec53c87a645854fe7adddf268d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -16,6 +16,8 @@ namespace Actor.Unit.Component
         public Agent Agent { get; private set; }
         
         public BaseAutoAttack AutoAttack { get; private set; }
+        
+        public GroundChecker GroundChecker { get; private set; }
 
         public Alliances alliances;
 
@@ -27,16 +29,19 @@ namespace Actor.Unit.Component
             Animator = visualTransform.GetComponent<Animator>();
             
             Movement = GetComponent<Movement>();
-            Movement.Init(this);
+            Movement?.Init(this);
             
             Agent = GetComponent<Agent>();
-            Agent.Init(this);
+            Agent?.Init(this);
 
             AutoAttack = GetComponent<BaseAutoAttack>();
-            AutoAttack.Init(this);
+            AutoAttack?.Init(this);
+            
+            GroundChecker = GetComponent<GroundChecker>();
+            GroundChecker?.Init(this);
                 
             StateMachine = new StateMachine<Unit>(this);
-            StateMachine.Initialize(UnitStateEnum.Idle);
+            StateMachine.Initialize(UnitStateEnum.Fall);
         }
 
         private void Update()
