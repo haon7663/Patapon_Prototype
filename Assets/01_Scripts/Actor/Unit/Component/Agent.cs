@@ -39,6 +39,8 @@ namespace Actor.Unit.Component
         
         public UnitCommands commands;
 
+        public Vector2 dir;
+
         public void Init(Unit unit)
         {
             _unit = unit;
@@ -47,7 +49,26 @@ namespace Actor.Unit.Component
 
         private void LateUpdate()
         {
-            switch (commands)
+            var command = _unit.alliances == Alliances.Alliance ? AllianceActing.commands : commands;
+            
+            if (command != UnitCommands.Attack)
+            {
+                var target = SearchTarget();
+                if (target && (transform.position - target.position).magnitude < 5)
+                {
+                    AllianceActing.commands = UnitCommands.Attack;
+                }
+            }
+            else
+            {
+                var target = SearchTarget();
+                if (!target)
+                {
+                    AllianceActing.commands = UnitCommands.Defence;
+                }
+            }
+            
+            switch (command)
             {
                 case UnitCommands.Move:
                     _onMovement?.Invoke(Vector2.right);
@@ -63,7 +84,20 @@ namespace Actor.Unit.Component
                         if (AutoAttack.InRange)
                             _onMovement?.Invoke(Vector2.zero);
                         else
-                            _onMovement?.Invoke(target ? target.position.x - transform.position.x > 0 ? Vector2.right : Vector2.left : Vector2.zero);
+                        {
+                            dir = target ? target.position.x - transform.position.x > 0 ? Vector2.right : Vector2.left : Vector2.zero;
+                            _onMovement?.Invoke(dir);
+                        }
+                    }
+                    break;
+                case UnitCommands.Defence:
+                    var targetPosX = AllianceActing.GetPositionX(_unit);
+                    if (Mathf.Abs(targetPosX - transform.position.x) < 0.15f)
+                        _onMovement?.Invoke(Vector2.zero);
+                    else
+                    {
+                        dir = targetPosX > transform.position.x ? Vector2.right : Vector2.left;
+                        _onMovement?.Invoke(dir);
                     }
                     break;
             }

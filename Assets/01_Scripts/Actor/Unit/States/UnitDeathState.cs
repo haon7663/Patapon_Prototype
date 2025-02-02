@@ -19,5 +19,15 @@ namespace Actor.Unit.States
             Owner.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             Owner.isDeath = true;
         }
+        
+        public override void UpdateState()
+        {
+            base.UpdateState();
+
+            if (IsTriggerCalled(AnimationTriggerEnum.EndTrigger))
+            {
+                Object.Destroy(Owner.gameObject);
+            }
+        }
     }
 }

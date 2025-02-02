@@ -22,7 +22,6 @@ namespace Actor.Unit.States
             base.UpdateState();
             if (IsTriggerCalled(AnimationTriggerEnum.AttackTrigger))
             {
-                Debug.Log("Unit is attacking");
                 var target = Owner.AutoAttack.SearchTarget();
                 if (target)
                 {

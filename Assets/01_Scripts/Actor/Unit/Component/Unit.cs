@@ -2,6 +2,7 @@ using System;
 using Actor.Unit.Enums;
 using Actor.Unit.Management;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Actor.Unit.Component
 {
@@ -15,6 +16,8 @@ namespace Actor.Unit.Component
         
         public Agent Agent { get; private set; }
         
+        public Health HealthComp { get; private set; }
+        
         public BaseAutoAttack AutoAttack { get; private set; }
         
         public GroundChecker GroundChecker { get; private set; }
@@ -23,9 +26,18 @@ namespace Actor.Unit.Component
 
         public bool isDeath;
 
+        public HpBar HpBar { get; private set; }
+        
+        public HpBar hpBarPrefab;
+        
+        public Transform NormalTrans { get; private set; }
+
         private void Awake()
         {
-            var visualTransform = transform.Find("Visual");
+            NormalTrans = transform.Find("Normal");
+            NormalTrans.transform.localPosition = new Vector3(0, Random.Range(-0.11f, 0.11f));
+            
+            var visualTransform = NormalTrans.Find("Visual");
             Animator = visualTransform.GetComponent<Animator>();
             
             Movement = GetComponent<Movement>();
@@ -33,6 +45,9 @@ namespace Actor.Unit.Component
             
             Agent = GetComponent<Agent>();
             Agent?.Init(this);
+
+            HealthComp = GetComponent<Health>();
+            HealthComp?.Init(this);
 
             AutoAttack = GetComponent<BaseAutoAttack>();
             AutoAttack?.Init(this);
@@ -42,6 +57,10 @@ namespace Actor.Unit.Component
                 
             StateMachine = new StateMachine<Unit>(this);
             StateMachine.Initialize(UnitStateEnum.Fall);
+
+            var canvas = FindAnyObjectByType<Canvas>();
+            HpBar = Instantiate(hpBarPrefab, canvas.transform);
+            HpBar.Connect(this);
         }
 
         private void Update()

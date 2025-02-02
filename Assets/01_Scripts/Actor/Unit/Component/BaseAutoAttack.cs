@@ -15,8 +15,8 @@ namespace Actor.Unit.Component
         
         [SerializeField]
         protected float strikingPower;
-        [SerializeField]
-        protected float range;
+        
+        public float range;
 
         private Unit _unit;
 

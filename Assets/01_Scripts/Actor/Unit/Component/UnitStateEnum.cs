@@ -7,5 +7,6 @@
         Fall,
         Attack,
         Death,
+        KnockBack,
     }
 }
