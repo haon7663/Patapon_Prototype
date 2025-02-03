@@ -56,6 +56,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7321919702411629423, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
+      propertyPath: curHp
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7321919702411629423, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
+      propertyPath: maxHp
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 8574594309439061984, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
       propertyPath: m_Size.x
       value: 0.91894734
@@ -104,5 +112,5 @@ MonoBehaviour:
   attackDelay: 1
   attackCooldown: 0
   strikingPower: 3
-  range: 2.25
+  range: 3
   projectilePrefab: {fileID: 6113276314632139994, guid: c6dacbfde61b20940ad7c6b1802db6bc, type: 3}

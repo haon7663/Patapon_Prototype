@@ -82,14 +82,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1099072980280584937, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5668898599210402787}
+      addedObject: {fileID: 1287563091684183682}
   m_SourcePrefab: {fileID: 100100000, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
 --- !u!1 &2657959158009654377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1099072980280584937, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
   m_PrefabInstance: {fileID: 3144153318884099712}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5668898599210402787
+--- !u!114 &1287563091684183682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,11 +98,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2657959158009654377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46e4f0ddaef18a43b0e8bad23312281, type: 3}
+  m_Script: {fileID: 11500000, guid: 90802b8a0881e2f4db6425c26b24ba48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDelay: 0.6
   attackCooldown: 0
-  strikingPower: 2
-  range: 2.5
-  projectilePrefab: {fileID: -2346283861635340535, guid: 6defc45c7e7e88545afdff786aef7b7e, type: 3}
+  strikingPower: 3
+  range: 0.97

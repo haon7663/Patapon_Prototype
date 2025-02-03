@@ -13,6 +13,9 @@ public class TestSpawner : MonoBehaviour
 
     [SerializeField] private Transform allianceSpawnPoint;
     [SerializeField] private Transform enemySpawnPoint;
+
+    [SerializeField] private GameObject warningPrefab;
+    [SerializeField] private Transform canvas;
     
     private Camera _mainCamera;
 
@@ -31,7 +34,10 @@ public class TestSpawner : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Instantiate(enemyUnitPrefabs[Random.Range(0, enemyUnitPrefabs.Length)], enemySpawnPoint.position, Quaternion.identity);
+            for (int i = 0; i < 5; i++)
+                Instantiate(enemyUnitPrefabs[Random.Range(0, enemyUnitPrefabs.Length)], enemySpawnPoint.position + Vector3.right * Random.Range(-1f, 4f), Quaternion.identity);
+            
+            Instantiate(warningPrefab, canvas);
         }
     }
 }

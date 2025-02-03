@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Actor.Unit.Component;
 using UnityEngine;
 using DG.Tweening;
@@ -16,7 +17,8 @@ namespace Actor.Unit.States
             base.Enter();
             Owner.Movement.StopImmediately(true);
 
-            var randY = Random.Range(-0.4f, 0.4f);
+            var randY = Random.Range(-0.065f, 0.065f);
+            Owner.VisualTrans.GetComponent<SpriteRenderer>().sortingOrder = -Mathf.RoundToInt((randY + 0.065f) * 1000);
             Owner.transform.DOLocalMoveY(Owner.transform.localPosition.y + randY, 1.25f)
                 .From(Owner.transform.localPosition.y + randY + 8f)
                 .SetEase(Ease.InSine)

@@ -8,7 +8,7 @@ public static class AllianceActing
 {
     public static UnitCommands commands = UnitCommands.Defence;
 
-    public static float GetPositionX(Unit unit)
+    public static float GetReadyPositionX(Unit unit)
     {
         var index = UnitManager.Units
             .Where(u => u.alliances == Alliances.Alliance)
@@ -17,6 +17,22 @@ public static class AllianceActing
             .ToList()
             .FindIndex(u => unit == u);
 
-        return -index * 0.3f - unit.AutoAttack.range * 0.25f - 3;
+        var maxCount = UnitManager.Units.Count(u => u.alliances == Alliances.Alliance);
+
+        return -(index - (maxCount - 1) * 0.5f) / maxCount * 3;
+    }
+
+    public static float GetBoundaryPositionX(Unit unit)
+    {
+        var index = UnitManager.Units
+            .Where(u => u.alliances == Alliances.Alliance)
+            .OrderBy(u => u.AutoAttack.range)
+            .ThenByDescending(u => u.transform.position.x)
+            .ToList()
+            .FindIndex(u => unit == u);
+
+        var maxCount = UnitManager.Units.Count(u => u.alliances == Alliances.Alliance);
+
+        return -(index - (maxCount - 1) * 0.5f) * 0.1f + -unit.AutoAttack.range * 0.5f + 0.5f;
     }
 }

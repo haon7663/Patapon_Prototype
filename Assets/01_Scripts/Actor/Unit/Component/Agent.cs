@@ -82,6 +82,15 @@ namespace Actor.Unit.Component
                     }
                     else
                     {
+                        if (_unit.alliances == Alliances.Alliance)
+                        {
+                            _onMovement?.Invoke(Vector2.zero);
+                            dir = Vector2.right;
+                            if (dir != Vector2.zero)
+                                transform.rotation = Quaternion.Euler(0, dir.x > 0 ? 0 : 180, 0);
+                            break;
+                        }
+                        
                         if (AutoAttack.InRange)
                             _onMovement?.Invoke(Vector2.zero);
                         else
@@ -92,7 +101,7 @@ namespace Actor.Unit.Component
                     }
                     break;
                 case UnitCommands.Defence:
-                    var targetPosX = AllianceActing.GetPositionX(_unit);
+                    var targetPosX = AllianceActing.GetBoundaryPositionX(_unit);
                     if (Mathf.Abs(targetPosX - transform.position.x) < 0.15f)
                         _onMovement?.Invoke(Vector2.zero);
                     else

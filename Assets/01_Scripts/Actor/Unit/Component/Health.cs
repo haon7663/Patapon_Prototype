@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Actor.Unit.Component
@@ -11,6 +12,10 @@ namespace Actor.Unit.Component
         
         public float maxHp;
         public float curHp;
+
+        [SerializeField] private Color hitColor;
+        [SerializeField] private Material defaultMaterial;
+        [SerializeField] private Material whiteMaterial;
 
         private int _knockBackCount = 1;
 
@@ -30,13 +35,19 @@ namespace Actor.Unit.Component
                 return;
             }
             
-            if (_knockBackCount > 0 && curHp / maxHp <= 0.3f)
+            /*if (_knockBackCount > 0 && curHp / maxHp <= 0.3f)
             {
                 _knockBackCount--;
                 _unit.StateMachine.ChangeState(UnitStateEnum.KnockBack);
-            }
+            }*/
             
             _unit.HpBar.UpdateUI();
+
+            /*_unit.SpriteRendererComp.material = whiteMaterial; 
+            DOTween.Sequence().AppendInterval(0.05f).OnComplete(() => _unit.SpriteRendererComp.material = defaultMaterial);*/
+
+            _unit.SpriteRendererComp.color = hitColor;
+            _unit.SpriteRendererComp.DOColor(Color.white, 0.2f);
         }
     }
 }

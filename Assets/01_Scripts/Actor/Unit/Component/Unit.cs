@@ -30,13 +30,18 @@ namespace Actor.Unit.Component
         public HpBar hpBarPrefab;
         
         public Transform NormalTrans { get; private set; }
+        
+        public Transform VisualTrans { get; private set; }
+        
+        public SpriteRenderer SpriteRendererComp { get; private set; }
 
         private void Awake()
         {
             NormalTrans = transform.Find("Normal");
             
-            var visualTransform = NormalTrans.Find("Visual");
-            Animator = visualTransform.GetComponent<Animator>();
+            VisualTrans = NormalTrans.Find("Visual");
+            Animator = VisualTrans.GetComponent<Animator>();
+            SpriteRendererComp = VisualTrans.GetComponent<SpriteRenderer>();
             
             Movement = GetComponent<Movement>();
             Movement?.Init(this);
