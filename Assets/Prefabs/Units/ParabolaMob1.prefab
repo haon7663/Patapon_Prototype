@@ -103,6 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDelay: 0.6
   attackCooldown: 0
-  strikingPower: 1
-  range: 3
+  strikingPower: 2
+  range: 2.5
   projectilePrefab: {fileID: -2346283861635340535, guid: 6defc45c7e7e88545afdff786aef7b7e, type: 3}

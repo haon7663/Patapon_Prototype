@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46e4f0ddaef18a43b0e8bad23312281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDelay: 3
+  attackDelay: 1
   attackCooldown: 0
-  strikingPower: 7
-  range: 3
+  strikingPower: 3
+  range: 2.25
   projectilePrefab: {fileID: 6113276314632139994, guid: c6dacbfde61b20940ad7c6b1802db6bc, type: 3}
