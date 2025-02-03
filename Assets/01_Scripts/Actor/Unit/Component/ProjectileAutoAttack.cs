@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace Actor.Unit.Component
 {
-    using Projectile;
-    
     public class ProjectileAutoAttack : BaseAutoAttack
     {
-        [SerializeField] private Projectile projectilePrefab;
+        [SerializeField] private Projectile.Projectile projectilePrefab;
         
         public override void Strike(Transform target)
         {

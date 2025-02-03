@@ -40,5 +40,19 @@ public class UnitGroupFollow : MonoBehaviour
                 transform.position = alliancePos + baseOffset;
             }
         }
+        else
+        {
+            if (enemies.Any())
+            {
+                virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, 5.2f, Time.deltaTime * 5);
+                
+                var enemyMin = enemies.Min(u => u.transform.position.x);
+                var enemyMax = enemies.Max(u => u.transform.position.x);
+        
+                var enemyPos = Vector2.right * (enemyMin + enemyMax) / 2;
+
+                transform.position = enemyPos + baseOffset;
+            }
+        }
     }
 }

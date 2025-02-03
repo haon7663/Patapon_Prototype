@@ -1,12 +1,11 @@
+using Actor.Unit.Component;
 using UnityEngine;
 
 namespace Actor.Unit.States
 {
-    using Component;
-    
-    public class UnitKnockBackState : State<Unit>
+    public class UnitKnockBackState : State<Component.Unit>
     {
-        public UnitKnockBackState(Unit owner, StateMachine<Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
+        public UnitKnockBackState(Component.Unit owner, StateMachine<Component.Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
         {
         }
 
@@ -23,6 +22,7 @@ namespace Actor.Unit.States
             
             if (IsTriggerCalled(AnimationTriggerEnum.EndTrigger))
             {
+                RemoveTrigger(AnimationTriggerEnum.EndTrigger);
                 StateMachine.ChangeState(UnitStateEnum.Idle);
                 Debug.Log("KnockBackEnd");
             }

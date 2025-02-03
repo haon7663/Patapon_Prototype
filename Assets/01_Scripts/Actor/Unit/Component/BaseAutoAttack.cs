@@ -1,8 +1,7 @@
-using System;
 using System.Linq;
+using Actor.Unit.Enums;
 using Actor.Unit.Management;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Actor.Unit.Component
 {
@@ -29,6 +28,14 @@ namespace Actor.Unit.Component
 
         public Transform SearchTarget()
         {
+            if (_unit.alliances == Alliances.Enemy)
+            {
+                if (!UnitManager.Units
+                    .Where(u => u.alliances == _unit.Agent.targetAlliance && (u.transform.position - transform.position).magnitude <= range)
+                    .OrderBy(u => (u.transform.position - transform.position).magnitude).FirstOrDefault())
+                    return transform.Find("Tower");
+                    
+            }
             return UnitManager.Units
                 .Where(u => u.alliances == _unit.Agent.targetAlliance && (u.transform.position - transform.position).magnitude <= range)
                 .OrderBy(u => (u.transform.position - transform.position).magnitude).FirstOrDefault()

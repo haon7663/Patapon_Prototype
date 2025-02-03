@@ -2,11 +2,9 @@ using UnityEngine;
 
 namespace Actor.Unit.States
 {
-    using Component;
-    
-    public class UnitDeathState : State<Unit>
+    public class UnitDeathState : State<Component.Unit>
     {
-        public UnitDeathState(Unit owner, StateMachine<Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
+        public UnitDeathState(Component.Unit owner, StateMachine<Component.Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
         {
         }
 

@@ -1,4 +1,3 @@
-using System;
 using Actor.Unit.Enums;
 using Actor.Unit.Management;
 using UnityEngine;
@@ -35,7 +34,6 @@ namespace Actor.Unit.Component
         private void Awake()
         {
             NormalTrans = transform.Find("Normal");
-            NormalTrans.transform.localPosition = new Vector3(0, Random.Range(-0.11f, 0.11f));
             
             var visualTransform = NormalTrans.Find("Visual");
             Animator = visualTransform.GetComponent<Animator>();

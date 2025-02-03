@@ -1,12 +1,11 @@
-﻿using UnityEngine;
+﻿using Actor.Unit.Component;
+using UnityEngine;
 
 namespace Actor.Unit.States
 {
-    using Component;
-    
-    public class UnitIdleState : State<Unit>
+    public class UnitIdleState : State<Component.Unit>
     {
-        public UnitIdleState(Unit owner, StateMachine<Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
+        public UnitIdleState(Component.Unit owner, StateMachine<Component.Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
         {
         }
 

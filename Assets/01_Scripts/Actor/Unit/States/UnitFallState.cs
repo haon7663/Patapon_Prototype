@@ -1,12 +1,12 @@
+using Actor.Unit.Component;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Actor.Unit.States
 {
-    using Component;
-    
-    public class UnitFallState : State<Unit>
+    public class UnitFallState : State<Component.Unit>
     {
-        public UnitFallState(Unit owner, StateMachine<Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
+        public UnitFallState(Component.Unit owner, StateMachine<Component.Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
         {
         }
         
@@ -15,7 +15,12 @@ namespace Actor.Unit.States
         {
             base.Enter();
             Owner.Movement.StopImmediately(true);
-            Owner.GroundChecker.OnGroundChecked += HandleLandingEvent;
+
+            var randY = Random.Range(-0.4f, 0.4f);
+            Owner.transform.DOLocalMoveY(Owner.transform.localPosition.y + randY, 1.25f)
+                .From(Owner.transform.localPosition.y + randY + 8f)
+                .SetEase(Ease.InSine)
+                .OnComplete(HandleLandingEvent);
         }
         
         private void HandleLandingEvent()
@@ -27,7 +32,6 @@ namespace Actor.Unit.States
         {
             base.Exit();
             Owner.Movement.StopImmediately(true);
-            Owner.GroundChecker.OnGroundChecked -= HandleLandingEvent;
         }
     }
 }

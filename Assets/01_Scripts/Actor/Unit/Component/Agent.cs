@@ -2,7 +2,6 @@
 using System.Linq;
 using Actor.Unit.Enums;
 using Actor.Unit.Management;
-using Actor.Unit.States;
 using UnityEngine;
 
 namespace Actor.Unit.Component
@@ -40,6 +39,8 @@ namespace Actor.Unit.Component
         public UnitCommands commands;
 
         public Vector2 dir;
+
+        private Unit _mainTarget;
 
         public void Init(Unit unit)
         {
@@ -85,7 +86,7 @@ namespace Actor.Unit.Component
                             _onMovement?.Invoke(Vector2.zero);
                         else
                         {
-                            dir = target ? target.position.x - transform.position.x > 0 ? Vector2.right : Vector2.left : Vector2.zero;
+                            dir = target ? target.position.x - transform.position.x > 0 ? Vector2.right : Vector2.left : Vector2.left;
                             _onMovement?.Invoke(dir);
                         }
                     }

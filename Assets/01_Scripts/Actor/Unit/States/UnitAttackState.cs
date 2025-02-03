@@ -1,12 +1,10 @@
-using UnityEngine;
+using Actor.Unit.Component;
 
 namespace Actor.Unit.States
 {
-    using Component;
-    
-    public class UnitAttackState : State<Unit>
+    public class UnitAttackState : State<Component.Unit>
     {
-        public UnitAttackState(Unit owner, StateMachine<Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
+        public UnitAttackState(Component.Unit owner, StateMachine<Component.Unit> stateMachine, string animBoolName) : base(owner, stateMachine, animBoolName)
         {
         }
 

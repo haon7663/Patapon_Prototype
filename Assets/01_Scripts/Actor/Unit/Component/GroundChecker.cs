@@ -1,5 +1,4 @@
 using System;
-using UniRx.Triggers;
 using UnityEngine;
 
 namespace Actor.Unit.Component
