@@ -111,8 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d2b96f354c4f24891db3db28ffb055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetAlliance: 1
-  commands: 2
+  targetAlliance: 8
   dir: {x: 0, y: 0}
 --- !u!114 &7321919702411629423
 MonoBehaviour:

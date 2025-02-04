@@ -24,7 +24,7 @@ namespace Actor.Projectile
             _endPosition = target.position + Vector3.up * 0.25f + Vector3.right * Random.Range(-randomizeTargetAmount, randomizeTargetAmount);;
             
             _damage = damage;
-            _targetAlliance = owner.GetComponent<Agent>().targetAlliance;
+            _targetAlliance = owner.GetComponent<AllianceAgent>().targetAlliance;
 
             StartCoroutine(Parabola());
         }

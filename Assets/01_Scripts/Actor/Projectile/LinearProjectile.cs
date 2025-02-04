@@ -14,7 +14,7 @@ namespace Actor.Projectile
             transform.position += Vector3.up * 0.25f;
             GetComponent<Rigidbody2D>().linearVelocity = (target.position - owner.position).normalized * projectileSpeed;
             _damage = damage;
-            _targetAlliance = owner.GetComponent<Agent>().targetAlliance;
+            _targetAlliance = owner.GetComponent<AllianceAgent>().targetAlliance;
         }
 
         private void OnTriggerEnter2D(Collider2D other)

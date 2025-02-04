@@ -76,13 +76,17 @@ PrefabInstance:
       propertyPath: alliances
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3489892016098540499, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1099072980280584937, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1287563091684183682}
+    - targetCorrespondingSourceObject: {fileID: 1099072980280584937, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8997041917540718395}
   m_SourcePrefab: {fileID: 100100000, guid: 3246ecf38a31f824eb838a477b5b6a73, type: 3}
 --- !u!1 &2657959158009654377 stripped
 GameObject:
@@ -105,3 +109,17 @@ MonoBehaviour:
   attackCooldown: 0
   strikingPower: 3
   range: 0.97
+--- !u!114 &8997041917540718395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2657959158009654377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9977c23f140f40b4babebf4e54f65732, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAlliance: 4
+  dir: {x: 0, y: 0}

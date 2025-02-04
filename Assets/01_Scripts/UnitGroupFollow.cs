@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class UnitGroupFollow : MonoBehaviour
 {
-    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    /*[SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private Vector2 baseOffset;
 
     private void Update()
@@ -54,5 +54,5 @@ public class UnitGroupFollow : MonoBehaviour
                 transform.position = enemyPos + baseOffset;
             }
         }
-    }
+    }*/
 }

@@ -1,16 +1,33 @@
 using UnityEngine;
 
-public class EnemyAgent : MonoBehaviour
+namespace Actor.Unit.Component
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class EnemyAgent : Agent
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void LateUpdate()
+        {
+            var target = SearchTarget();
+            if (target)
+            {
+                switch (AutoAttack.InRange)
+                {
+                    case true when AutoAttack.attackCooldown <= 0:
+                        onAttack?.Invoke();
+                        break;
+                    case true:
+                        onMovement?.Invoke(Vector2.zero);
+                        break;
+                    default:
+                        dir = target.position.x - transform.position.x > 0 ? Vector2.right : Vector2.left;
+                        onMovement?.Invoke(dir);
+                        break;
+                }
+            }
+            else
+            {
+                dir = Vector2.left;
+                onMovement?.Invoke(dir);
+            }
+        }
     }
 }

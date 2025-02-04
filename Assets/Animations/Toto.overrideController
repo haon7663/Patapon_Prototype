@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Toto
+  m_Controller: {fileID: 9100000, guid: a0f057fca2530984b9cf81f228041328, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 690de5a3c0d1a464da8d49197eb4ebde, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ec04ba3871fa2ca41b5b31cae6c4d247, type: 2}

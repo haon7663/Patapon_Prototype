@@ -6,8 +6,6 @@ using UnityEngine;
 
 public static class AllianceActing
 {
-    public static UnitCommands commands = UnitCommands.Defence;
-
     public static float GetReadyPositionX(Unit unit)
     {
         var index = UnitManager.Units
@@ -33,6 +31,6 @@ public static class AllianceActing
 
         var maxCount = UnitManager.Units.Count(u => u.alliances == Alliances.Alliance);
 
-        return -(index - (maxCount - 1) * 0.5f) * 0.1f + -unit.AutoAttack.range * 0.5f + 0.5f;
+        return -(index - (maxCount - 1) * 0.5f) * 0.1f + -unit.AutoAttack.range * 0.5f - 0.5f;
     }
 }
